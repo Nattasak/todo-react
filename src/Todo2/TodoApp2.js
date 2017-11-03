@@ -49,11 +49,13 @@ class TodoApp2 extends Component {
 
     return (
       <div className="Todo-app">
+
         <form onSubmit={this.onSubmit}>
           <span>Task</span>
           <input value={this.state.term} onChange={this.onChange} placeholder="What do you need to do?" />
           <button>Save Item</button>
         </form>
+
         <div className="List">
           <ul>
             { items.map((item, index) =>
@@ -65,11 +67,13 @@ class TodoApp2 extends Component {
             ) }
           </ul>
         </div>
+
         {/* How it works*/}
         <div className="grey">
           This state term: {this.state.term} <br /><br />
           This state items: {this.state.items}
         </div>
+
       </div>
     );
   }
