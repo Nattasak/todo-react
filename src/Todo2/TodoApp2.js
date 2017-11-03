@@ -22,20 +22,20 @@ class TodoApp2 extends Component {
     });
   }
 
-  doneItemHandler = (e) => {
+  doneItemHandler = () => {
     console.log('Done!!!');
   }
 
-  removeItemHandler = (id) => {
-    console.log('Remove to-do id : ' + id.target.id);
+  removeItemHandler = (obj) => {
+    console.log('Remove to-do id : ' + obj.target.id);
 
     // Current State (items)
     let items = this.state.items;
     console.log('State (before splice) : ' + items);
 
-    // Splice item By id
-    let spiceItem = items.splice(id.target.id, 1);
-    console.log('Splice : ' + spiceItem);
+    // Splice item By object-id
+    let spliceItem = items.splice(obj.target.id, 1);
+    console.log('Splice : ' + spliceItem);
 
     // SET State After splice
     console.log('State (after splice) : ' + items);
@@ -59,7 +59,7 @@ class TodoApp2 extends Component {
             { items.map((item, index) =>
               <li key={index} id={index}>
                 <span className="txt">{item}</span>
-                <button id={index} onClick={this.doneItemHandler}>/</button>
+                <button onClick={this.doneItemHandler}>/</button>
                 <button id={index} onClick={this.removeItemHandler}>X</button>
               </li>
             ) }
