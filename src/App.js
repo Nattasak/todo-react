@@ -16,7 +16,7 @@ class App extends Component {
           <h2>Simple todo list</h2>
           <TodoApp />
           <hr /><hr /><br />
-          <h2>Todo app 2 (in lab)</h2>
+          <h2>Todo app 2 (in lab) (Remove works!!)</h2>
           <TodoApp2 />
         </div>
       </div>

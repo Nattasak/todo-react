@@ -61,6 +61,17 @@
   margin-bottom: 18px;
 }
 
+.Todo-app li .txt {
+  margin-right: 10px;
+  font-weight: normal;
+}
+
+.Todo-app li button {
+  width: 40px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
 .grey {
   color: #a5a5a5;
 }
