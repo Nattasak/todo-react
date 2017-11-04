@@ -10,13 +10,14 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">To do App</h1>
+          <h1 className="App-title"><a href="/">To do App</a></h1>
         </header>
         <div className="Todo-container">
           <h2>Simple todo list</h2>
           <TodoApp />
           <hr /><hr /><br />
-          <h2>Todo app 2 (in lab) (remove works! + complete works (in console only lol))</h2>
+          <h2>Todo app 2 (in lab)</h2>
+          <p className="sometxt">Remove func works! + Complete func works (in console only lol)</p>
           <TodoApp2 />
         </div>
       </div>
