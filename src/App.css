@@ -82,11 +82,14 @@
 
 .Todo-app li {
   margin-bottom: 18px;
+  position: relative;
 }
 
 .Todo-app li .txt {
   margin-right: 10px;
   font-weight: normal;
+  width: 160px;
+  display: inline-block;
 }
 
 .Todo-app li button {
@@ -97,4 +100,31 @@
 
 .grey {
   color: #a5a5a5;
+}
+
+.complete {
+  /*text-decoration: line-through;*/
+}
+
+.not-complete {
+  /*text-decoration: none;*/
+}
+
+.complete::before {
+  content: "__________________";
+  position: absolute;
+  left: 0;
+  top: -3px;
+  color: #333;
+  width: 140px;
+  height: 27px;
+}
+
+.not-complete::before {
+  content: "                    ";
+  position: absolute;
+  left: 0;
+  top: -3px;
+  width: 140px;
+  height: 27px;
 }

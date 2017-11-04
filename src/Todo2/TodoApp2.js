@@ -26,26 +26,27 @@ class TodoApp2 extends Component {
     }
   }
 
-  doneItemHandler = (obj) => {
-    console.log('[Item id ' + obj.target.id + '] Mission completed. Good job guys!' );
+  completeItemHandler = (obj) => {
+    obj.target.className = (obj.target.className === "complete") ? "not-complete" : "complete";
+    console.log('[Item id ' + obj.target.id + '] ' + obj.target.className );
   }
 
   removeItemHandler = (obj) => {
-    console.log('Remove item id : ' + obj.target.id);
+    //console.log('Remove item id : ' + obj.target.id);
 
     // Current Items on State
     let items = this.state.items;
-    console.log('State (before splice) : ' + items);
+    //console.log('State (before splice) : ' + items);
 
     // Remove item By object-id
     let spliceItem = items.splice(obj.target.id, 1);
     console.log('Remove : ' + spliceItem);
 
     // Set State After remove item
-    console.log('State (after splice) : ' + items);
+    //console.log('State (after splice) : ' + items);
     this.setState({items: [...items]});
 
-    console.log('-----------------------------------------------------------');
+    //console.log('-----------------------------------------------------------');
   }
 
   render() {
@@ -54,7 +55,10 @@ class TodoApp2 extends Component {
     /*let styles = {
       complete: {
         textDecoration: "line-through"
-      }
+      },
+      notComplete: {
+        textDecoration: "none"
+      },
     }*/
 
     return (
@@ -62,7 +66,7 @@ class TodoApp2 extends Component {
 
         <form onSubmit={this.onSubmit}>
           <span>Task</span>
-          <input value={this.state.term} onChange={this.onChange} placeholder="What do you need to do?" />
+          <input value={this.state.term} onChange={this.onChange} placeholder="What do you need to do?" maxLength="15" />
           <button>Save Item</button>
         </form>
 
@@ -71,7 +75,7 @@ class TodoApp2 extends Component {
             { items.map((item, index) =>
               <li key={index} id={index}>
                 <span className="txt">{item}</span>
-                <button id={index} onClick={this.doneItemHandler}>/</button>
+                <button id={index} className="not-complete" onClick={this.completeItemHandler}>/</button>
                 <button id={index} onClick={this.removeItemHandler}>X</button>
               </li>
             ) }

@@ -17,7 +17,7 @@ class App extends Component {
           <TodoApp />
           <hr /><hr /><br />
           <h2>Todo app 2 (in lab)</h2>
-          <p className="sometxt">Remove func works! + Complete func works (in console only lol)</p>
+          <p className="sometxt">Remove func works! + Complete func works! (css hack lol)</p>
           <TodoApp2 />
         </div>
       </div>
