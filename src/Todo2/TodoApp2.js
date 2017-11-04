@@ -16,28 +16,32 @@ class TodoApp2 extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    this.setState({
-      term: '',
-      items: [...this.state.items, this.state.term]
-    });
+    if(this.state.term !== '') {
+      this.setState({
+        term: '',
+        items: [...this.state.items, this.state.term]
+      });
+    } else {
+      console.log('Plz. type some text');
+    }
   }
 
-  doneItemHandler = () => {
-    console.log('Done!!!');
+  doneItemHandler = (obj) => {
+    console.log('[Item id ' + obj.target.id + '] Mission completed. Good job guys!' );
   }
 
   removeItemHandler = (obj) => {
-    console.log('Remove to-do id : ' + obj.target.id);
+    console.log('Remove item id : ' + obj.target.id);
 
-    // Current State (items)
+    // Current Items on State
     let items = this.state.items;
     console.log('State (before splice) : ' + items);
 
-    // Splice item By object-id
+    // Remove item By object-id
     let spliceItem = items.splice(obj.target.id, 1);
-    console.log('Splice : ' + spliceItem);
+    console.log('Remove : ' + spliceItem);
 
-    // SET State After splice
+    // Set State After remove item
     console.log('State (after splice) : ' + items);
     this.setState({items: [...items]});
 
@@ -46,6 +50,12 @@ class TodoApp2 extends Component {
 
   render() {
     const items = this.state.items;
+
+    /*let styles = {
+      complete: {
+        textDecoration: "line-through"
+      }
+    }*/
 
     return (
       <div className="Todo-app">
@@ -61,18 +71,18 @@ class TodoApp2 extends Component {
             { items.map((item, index) =>
               <li key={index} id={index}>
                 <span className="txt">{item}</span>
-                <button onClick={this.doneItemHandler}>/</button>
+                <button id={index} onClick={this.doneItemHandler}>/</button>
                 <button id={index} onClick={this.removeItemHandler}>X</button>
               </li>
             ) }
           </ul>
         </div>
 
-        {/* How it works*/}
+        {/* How it works
         <div className="grey">
           This state term: {this.state.term} <br /><br />
           This state items: {this.state.items}
-        </div>
+        </div>*/}
 
       </div>
     );
